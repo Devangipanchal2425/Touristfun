@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Mahir & Dhvanit</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body {
+            background: url('bg.jpg') no-repeat center center/cover;
+            height: 100vh; display: flex; justify-content: center; align-items: center;
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            width: 90%; max-width: 500px; padding: 40px;
+            border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center; backdrop-filter: blur(10px);
+        }
+        h2 { margin-bottom: 30px; color: #333; }
+        
+        .contact-card {
+            background: white; border-radius: 20px;
+            padding: 20px; margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .contact-card:hover { transform: translateY(-5px); }
+        .name { font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 10px; }
+        
+        .actions { display: flex; justify-content: center; gap: 15px; }
+        .btn {
+            padding: 10px 20px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-call { background: #007bff; color: white; }
+        .btn-wp { background: #25D366; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <h2>Contact Our Experts</h2>
+
+        <div class="contact-card">
+            <div class="name">Mahir Patel</div>
+            <div class="actions">
+                <a href="tel:+919824576927" class="btn btn-call">📞 Call Now</a>
+                <a href="https://wa.me/919824576927?text=Hi Mahir, I am interested in a trip!" class="btn btn-wp">💬 WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div class="name">Dhvanit Patel</div>
+            <div class="actions">
+                <a href="tel:+918866324076" class="btn btn-call">📞 Call Now</a>
+                <a href="https://wa.me/918866324076?text=Hi Dhvanit, I need trip details!" class="btn btn-wp">💬 WhatsApp</a>
+            </div>
+        </div>
+
+        <p style="margin-top: 20px; color: #666; font-size: 14px;">Available 24/7 for your travel needs</p>
+    </div>
+
+</body>
+</html>
