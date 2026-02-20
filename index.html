@@ -43,6 +43,14 @@
             position: absolute;
             width: 100%;
             z-index: 10;
+            .plan-btn {
+    background: #e67e22;
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
         }
         .logo { font-weight: bold; font-size: 1.5rem; color: #fff; text-shadow: 1px 1px 5px rgba(0,0,0,0.3); }
         .nav-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; font-weight: 500; }
@@ -78,7 +86,7 @@
 
         /* --- 5. DESTINATIONS SECTION --- */
         .destinations { padding: 60px 50px; }
-        
+
 /* Cards ko ek line mein lane ke liye aur mobile par adjust karne ke liye */
 .cards-container { 
     display: flex; 
@@ -179,13 +187,14 @@
             <div class="logo">Tourist fun</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="inquiry.html"></a>
                 <a href="destination.html">Destinations</a>
                 <a href="about.html">About Us</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="auth-buttons">
             <a href="login.html" class="login-link" style="color: white; margin-right: 15px; text-decoration: none;">Log In</a>
-    
+            <a href="inquiry.html"class="plan-btn"> Plane my trip </a>
             <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>     
         </nav>
@@ -199,7 +208,8 @@
 <section class="destinations">
     <h2>Popular Destinations</h2>
     <div class="cards-container">
-        <div class="card" style="background-image: url('goa.jpeg');">
+        <div class="card" onclick="window.location.href='goa-details.html';"
+style="background-image: url('goa.jpeg');cursor: pointer;">
             <h3>Goa</h3>
         </div>
 
@@ -216,6 +226,9 @@ style="background-image: url('manali.jpeg');cursor: pointer;">
 </section>
 
     </div>
+    <a href="inquiry.html" style="position: fixed; bottom: 20px; right: 20px; background: #2e7d32; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    📩
+</a>
 
 </body>
 </html>
