@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Trip - Inquiry Form</title>
+    <style>
+        :root { --primary: #1b5e20; --secondary: #2e7d32; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+        .form-container { 
+            background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); width: 90%; max-width: 500px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5);
+        }
+        h2 { color: var(--primary); text-align: center; margin-bottom: 25px; font-size: 24px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        input, select, textarea { 
+            width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 12px;
+            font-size: 16px; transition: 0.3s; box-sizing: border-box;
+        }
+        input:focus, select:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 8px rgba(46,125,50,0.2); }
+        .btn-submit { 
+            width: 100%; background: var(--primary); color: white; padding: 15px;
+            border: none; border-radius: 15px; font-size: 18px; font-weight: bold;
+            cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        .btn-submit:hover { background: var(--secondary); transform: translateY(-2px); }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>🗺️ Book Your Adventure</h2>
+    <form action="https://formspree.io/f/xgolnalw" method="POST"> <div class="input-group">
+            <label>Full name</label>
+            <input type="text" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Destination</label>
+            <select name="destination" required>
+                <option value="">Where do you want to go?</option>
+                <option value="Manali">Manali 🏔️</option>
+                <option value="Goa">Goa 🏖️</option>
+                <option value="Kerala">Kerala 🌿</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+
+        <div class="input-group">
+            <label>Travel Date</label>
+            <input type="date" name="date" required>
+        </div>
+
+        <div class="input-group">
+            <label>Something else?</label>
+            <textarea name="message" rows="3" placeholder="Adults? Kids? Budget?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Inquiry 🚀</button>
+        <a href="index.html" class="back-link">← Back to home</a>
+    </form>
+</div>
+
+</body>
+</html>
