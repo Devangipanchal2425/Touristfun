@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Destinations - TravelGo</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; padding: 40px 20px; text-align: center; }
+        h1 { color: #2d5a27; margin-bottom: 10px; font-size: 2.5rem; }
+        p { color: #666; margin-bottom: 40px; }
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .place-card { 
+            background: white; 
+            padding: 30px 15px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+            border-top: 5px solid #e67e22;
+            cursor: pointer;
+        }
+        .place-card:hover { 
+            transform: translateY(-10px); 
+            background: #2d5a27; 
+            color: white; 
+            border-top: 5px solid #fff;
+        }
+        .place-number { font-size: 0.8rem; color: #999; display: block; margin-bottom: 5px; }
+        .place-card:hover .place-number { color: #eee; }
+        .back-home { display: inline-block; margin-top: 50px; text-decoration: none; color: #2d5a27; font-weight: bold; border: 2px solid #2d5a27; padding: 10px 25px; border-radius: 50px; transition: 0.3s; }
+        .back-home:hover { background: #2d5a27; color: white; }
+    </style>
+</head>
+<body>
+
+    <h1>🌍 Our Travel Destinations</h1>
+    <p>“Your Journey Through India’s Most Beautiful & Breathtaking States Starts Here.”</p>
+
+    <div class="grid-container">
+         
+<div class="place-card" onclick="location.href='details.html?state=gujrat'"> gujrat </div>   
+<div class="place-card" onclick="location.href='details.html?state=Rajasthan'">Rajasthan 🏜️</div>        
+<div class="place-card"onclick="location.href='details.html?state=maharshtra'"> maharshtra </div>
+<div class="place-card" onclick="location.href='details.html?state=uttar pradesh'">uttar pradesh </div>
+<div class="place-card"onclick="location.href='details.html?state=Uttrakhand'"> Uttarakhand </div>
+<div class="place-card"onclick="location.href='details.html?state=Punjab'"> Punjab </div>
+<div class="place-card"onclick="location.href='details.html?state=Tamil Nadu'"> Tamil Nadu </div>
+<div class="place-card"onclick="location.href='details.html?state=Karnatka'"> Karnataka </div>
+<div class="place-card"onclick="location.href='details.html?state=Madhya Pradesh'">Madhya Pradesh </div>
+<div class="place-card"onclick="location.href='details.html?state=West Bengal'"> West Bengal </div>
+<div class="place-card"onclick="location.href='details.html?state=Sikkim'"> Sikkim </div>
+<div class="place-card"onclick="location.href='details.html?state=Assam'"> Assam </div>
+<div class="place-card"onclick="location.href='details.html?state=Jammu and Kashmir'"> Jammu and Kashmir </div>
+<div class="place-card"onclick="location.href='details.html?state=Odisha'">Odisha </div>
+<div class="place-card"onclick="location.href='details.html?state=Bihar'"> Bihar </div>
+<div class="place-card"onclick="location.href='details.html?state=Andhra pradesh'"> Andhra Pradesh </div>
+<div class="place-card"onclick="location.href='details.html?state=Telangana'">Telangana </div>
+<div class="place-card"onclick="location.href='details.html?state=Chhattisgarh'"> Chhattisgarh </div>
+<div class="place-card"onclick="location.href='details.html?state=Meghalaya'">Meghalaya </div>
+<div class="place-card"onclick="location.href='details.html?state=Arunachal pradesh'"> Arunachal Pradesh </div>
+    </div>
+
+    <a href="index.html" class="back-home">← Back to Home Page</a>
+
+</body>
+</html>
