@@ -3,72 +3,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Destinations - TravelGo</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; padding: 40px 20px; text-align: center; }
-        h1 { color: #2d5a27; margin-bottom: 10px; font-size: 2.5rem; }
-        p { color: #666; margin-bottom: 40px; }
-        .grid-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        .place-card { 
-            background: white; 
-            padding: 30px 15px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            transition: all 0.3s ease;
-            border-top: 5px solid #e67e22;
-            cursor: pointer;
-        }
-        .place-card:hover { 
-            transform: translateY(-10px); 
-            background: #2d5a27; 
-            color: white; 
-            border-top: 5px solid #fff;
-        }
-        .place-number { font-size: 0.8rem; color: #999; display: block; margin-bottom: 5px; }
-        .place-card:hover .place-number { color: #eee; }
-        .back-home { display: inline-block; margin-top: 50px; text-decoration: none; color: #2d5a27; font-weight: bold; border: 2px solid #2d5a27; padding: 10px 25px; border-radius: 50px; transition: 0.3s; }
-        .back-home:hover { background: #2d5a27; color: white; }
-    </style>
+
+    <title>Tourist Fun | Destinations</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <h1>🌍 Our Travel Destinations</h1>
-    <p>“Your Journey Through India’s Most Beautiful & Breathtaking States Starts Here.”</p>
+    <!-- ================= HEADER ================= -->
 
-    <div class="grid-container">
-         
-<div class="place-card" onclick="location.href='details.html?state=gujrat'"> gujrat </div>   
-<div class="place-card" onclick="location.href='details.html?state=Rajasthan'">Rajasthan 🏜️</div>        
-<div class="place-card"onclick="location.href='details.html?state=maharshtra'"> maharshtra </div>
-<div class="place-card" onclick="location.href='details.html?state=uttar pradesh'">uttar pradesh </div>
-<div class="place-card"onclick="location.href='details.html?state=Uttrakhand'"> Uttarakhand </div>
-<div class="place-card"onclick="location.href='details.html?state=Punjab'"> Punjab </div>
-<div class="place-card"onclick="location.href='details.html?state=Tamil Nadu'"> Tamil Nadu </div>
-<div class="place-card"onclick="location.href='details.html?state=Karnatka'"> Karnataka </div>
-<div class="place-card"onclick="location.href='details.html?state=Madhya Pradesh'">Madhya Pradesh </div>
-<div class="place-card"onclick="location.href='details.html?state=West Bengal'"> West Bengal </div>
-<div class="place-card"onclick="location.href='details.html?state=Sikkim'"> Sikkim </div>
-<div class="place-card"onclick="location.href='details.html?state=Assam'"> Assam </div>
-<div class="place-card"onclick="location.href='details.html?state=Jammu and Kashmir'"> Jammu and Kashmir </div>
-<div class="place-card"onclick="location.href='details.html?state=Odisha'">Odisha </div>
-<div class="place-card"onclick="location.href='details.html?state=Bihar'"> Bihar </div>
-<div class="place-card"onclick="location.href='details.html?state=Andhra pradesh'"> Andhra Pradesh </div>
-<div class="place-card"onclick="location.href='details.html?state=Telangana'">Telangana </div>
-<div class="place-card"onclick="location.href='details.html?state=Chhattisgarh'"> Chhattisgarh </div>
-<div class="place-card"onclick="location.href='details.html?state=Meghalaya'">Meghalaya </div>
-<div class="place-card"onclick="location.href='details.html?state=Arunachal pradesh'"> Arunachal Pradesh </div>
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-tourist">Tourist</span>
+            <span class="logo-fun">fun</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="destination.html" class="active">Destinations</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-right">
+            <span class="nav-icon">⌕</span>
+            <span class="nav-icon">♙</span>
+
+            <a href="#" class="plan-btn">
+                Plan my trip
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="destination-hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-title">
+
+                <span class="location-icon">●</span>
+
+                <div>
+                    <h1>Our Travel<br>Destinations</h1>
+
+                    <p>
+                        Your journey through India's most beautiful
+                        destinations starts here.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Where do you want to go?"
+                >
+
+                <button>
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-note">
+            Different places<br>
+            Same dream... ♡
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= REGION FILTERS ================= -->
+
+    <section class="destination-section">
+
+        <div class="region-filters">
+
+            <button class="filter-btn selected">
+                ◉ &nbsp; All Regions
+            </button>
+
+            <button class="filter-btn">
+                ♧ &nbsp; North India
+            </button>
+
+            <button class="filter-btn">
+                ♨ &nbsp; South India
+            </button>
+
+            <button class="filter-btn">
+                ≋ &nbsp; East India
+            </button>
+
+            <button class="filter-btn">
+                ☼ &nbsp; West India
+            </button>
+
+            <button class="filter-btn">
+                ⛩ &nbsp; Central India
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= DESTINATION GRID ================= -->
+
+        <div class="destination-grid">
+
+
+            <!-- GUJARAT -->
+
+<div class="destination-card">
+
+    <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+                        alt="Gujarat"
+                    >
+        </div>
+
+    <div class="card-content">
+
+        <div>
+            <h3>Gujarat</h3>
+            <p>West India</p>
+        </div>
+
+<a href="gujrat-details.html">Explore →</a>
     </div>
 
-    <a href="index.html" class="back-home">← Back to Home Page</a>
+</div>
+
+
+            <!-- RAJASTHAN -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80"
+                        alt="Rajasthan"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Rajasthan</h3>
+                        <p>North-West India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAHARASHTRA -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80"
+                        alt="Maharashtra"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Maharashtra</h3>
+                        <p>Western India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- UTTAR PRADESH -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80"
+                        alt="Uttar Pradesh"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Uttar Pradesh</h3>
+                        <p>North India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- UTTARAKHAND -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+                        alt="Uttarakhand"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Uttarakhand</h3>
+                        <p>North India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PUNJAB -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=800&q=80"
+                        alt="Punjab"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Punjab</h3>
+                        <p>North India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TAMIL NADU -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+                        alt="Tamil Nadu"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Tamil Nadu</h3>
+                        <p>South India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KARNATAKA -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+<img
+    src="https://images.unsplash.com/photo-1662785592834-b6499c193938?auto=format&fit=crop&w=800&q=80"
+    alt="Karnataka"
+>                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Karnataka</h3>
+                        <p>South India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MADHYA PRADESH -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=800&q=80"
+                        alt="Madhya Pradesh"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Madhya Pradesh</h3>
+                        <p>Central India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WEST BENGAL -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80"
+                        alt="West Bengal"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>West Bengal</h3>
+                        <p>East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SIKKIM -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
+                        alt="Sikkim"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Sikkim</h3>
+                        <p>East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ASSAM -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                        alt="Assam"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Assam</h3>
+                        <p>North-East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JAMMU AND KASHMIR -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                        <img
+                            src="https://loremflickr.com/800/600/kashmir?lock=21"
+                            alt="Jammu and Kashmir"
+                        >             
+                        </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Jammu & Kashmir</h3>
+                        <p>North India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ODISHA -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80"
+                        alt="Odisha"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Odisha</h3>
+                        <p>East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BIHAR -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+                        alt="Bihar"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Bihar</h3>
+                        <p>East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ANDHRA PRADESH -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+<img
+    src="https://images.unsplash.com/photo-1717585163277-c071677f949c?auto=format&fit=crop&w=800&q=80"
+    alt="Andhra Pradesh"
+>
+</div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Andhra Pradesh</h3>
+                        <p>South India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TELANGANA -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1572445271230-a78b5944a659?auto=format&fit=crop&w=800&q=80"
+                        alt="Telangana"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Telangana</h3>
+                        <p>South India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CHHATTISGARH -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+                        alt="Chhattisgarh"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Chhattisgarh</h3>
+                        <p>Central India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MEGHALAYA -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"
+                        alt="Meghalaya"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Meghalaya</h3>
+                        <p>North-East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ARUNACHAL PRADESH -->
+
+            <div class="destination-card">
+
+                <div class="card-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+                        alt="Arunachal Pradesh"
+                    >
+                </div>
+
+                <div class="card-content">
+
+                    <div>
+                        <h3>Arunachal Pradesh</h3>
+                        <p>North-East India</p>
+                    </div>
+
+                    <a href="#">Explore →</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= BACK BUTTON ================= -->
+
+        <div class="back-home">
+
+            <a href="index.html">
+                ← &nbsp; Back to Home Page
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+
 
 </body>
 </html>

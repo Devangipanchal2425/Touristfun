@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gujarat Guide - Heritage & Nature</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #0077b6;
+            text-align: center;
+            border-bottom: 3px solid #00b4d8;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            margin-top: 30px;
+            color: #023e8a;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: #caf0f8;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .map-btn {
+            display: block;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+            border-radius: 12px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .map-btn:hover {
+            background: #0077b6;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .back-home {
+            text-decoration: none;
+            color: #0077b6;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* PLAN MY TRIP BUTTON */
+        .plan-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .plan-btn {
+            display: inline-block;
+            background-color: #168f6b;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(22,143,107,0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* WHATSAPP BUTTON */
+        .wp-container {
+            text-align: center;
+            margin-top: 25px;
+            padding-bottom: 20px;
+        }
+
+        .wp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+        }
+
+        /* TRIP PLANNER POPUP */
+
+        .trip-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .trip-box {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .trip-box h2 {
+            color: #023e8a;
+            margin-top: 0;
+        }
+
+        .trip-box label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .trip-box select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .generate-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #168f6b;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 18px;
+            top: 10px;
+            border: none;
+            background: transparent;
+            font-size: 30px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .trip-result {
+            margin-top: 25px;
+        }
+
+        .day-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .day-card h3 {
+            color: #0077b6;
+            margin-top: 0;
+        }
+
+        .trip-summary {
+            background: #caf0f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .trip-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="destination.html" class="back-home">
+        ← Back to Destinations
+    </a>
+
+    <h1>🏛️ Gujarat Explorer Guide</h1>
+
+
+    <!-- ================= HERITAGE & CULTURE ================= -->
+
+    <div class="section-title">
+        🏛️ Heritage & Culture
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Ahmedabad+Heritage+City+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Ahmedabad Heritage 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Rani+Ki+Vav+Patan+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Rani Ki Vav, Patan 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Modhera+Sun+Temple+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Modhera Sun Temple 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Adalaj+Stepwell+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Adalaj Stepwell 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Champaner+Pavagadh+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Champaner-Pavagadh 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Sabarmati+Ashram+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Sabarmati Ashram 📍
+        </a>
+
+    </div>
+
+
+    <!-- ================= NATURE & WILDLIFE ================= -->
+
+    <div class="section-title">
+        🦁 Nature & Wildlife
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Great+Rann+of+Kutch+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Great Rann of Kutch 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Gir+National+Park+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Gir National Park 🦁
+        </a>
+
+        <a href="https://maps.google.com/?q=Girnar+Hill+Junagadh+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Girnar Hill 📍
+        </a>
+
+        <a href="https://maps.google.com/?q=Polo+Forest+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Polo Forest 🌳
+        </a>
+
+        <a href="https://maps.google.com/?q=Saputara+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Saputara Hill Station ⛰️
+        </a>
+
+        <a href="https://maps.google.com/?q=Velavadar+Blackbuck+National+Park+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Velavadar National Park 🦌
+        </a>
+
+    </div>
+
+
+    <!-- ================= TEMPLES & SPIRITUAL PLACES ================= -->
+
+    <div class="section-title">
+        🛕 Temples & Spiritual Places
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Somnath+Temple+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Somnath Temple 🛕
+        </a>
+
+        <a href="https://maps.google.com/?q=Dwarkadhish+Temple+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Dwarkadhish Temple 🛕
+        </a>
+
+        <a href="https://maps.google.com/?q=Ambaji+Temple+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Ambaji Temple 🛕
+        </a>
+
+        <a href="https://maps.google.com/?q=Palitana+Temples+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Palitana Temples 🛕
+        </a>
+
+        <a href="https://maps.google.com/?q=Dakor+Temple+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Dakor Temple 🛕
+        </a>
+
+        <a href="https://maps.google.com/?q=Pavagadh+Kalika+Mata+Temple"
+           target="_blank"
+           class="map-btn">
+            Pavagadh Temple 🛕
+        </a>
+
+    </div>
+
+
+    <!-- ================= BEACHES ================= -->
+
+    <div class="section-title">
+        🌊 Beaches & Coastal Places
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Shivrajpur+Beach+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Shivrajpur Beach 🌊
+        </a>
+
+        <a href="https://maps.google.com/?q=Mandvi+Beach+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Mandvi Beach 🌊
+        </a>
+
+        <a href="https://maps.google.com/?q=Dumas+Beach+Surat+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Dumas Beach 🌊
+        </a>
+
+        <a href="https://maps.google.com/?q=Tithal+Beach+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Tithal Beach 🌊
+        </a>
+
+    </div>
+
+
+    <!-- ================= POPULAR FOOD ================= -->
+
+    <div class="section-title">
+        🍽️ Popular Gujarati Food
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Gujarati+Thali+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Gujarati Thali 🍛
+        </a>
+
+        <a href="https://maps.google.com/?q=Manek+Chowk+Ahmedabad+Food"
+           target="_blank"
+           class="map-btn">
+            Manek Chowk Food Street 🍴
+        </a>
+
+        <a href="https://maps.google.com/?q=Khaman+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Khaman & Dhokla 🥘
+        </a>
+
+        <a href="https://maps.google.com/?q=Fafda+Jalebi+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Fafda & Jalebi 🍽️
+        </a>
+
+        <a href="https://maps.google.com/?q=Gujarati+Food+Vadodara"
+           target="_blank"
+           class="map-btn">
+            Gujarati Food, Vadodara 🍛
+        </a>
+
+        <a href="https://maps.google.com/?q=Gujarati+Food+Surat"
+           target="_blank"
+           class="map-btn">
+            Gujarati Food, Surat 🍴
+        </a>
+
+    </div>
+
+
+    <!-- ================= HOTELS ================= -->
+
+    <div class="section-title">
+        🏨 Top Hotels (Luxury to Budget)
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Hotels+Ahmedabad+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Luxury Hotels - Ahmedabad ⭐
+        </a>
+
+        <a href="https://maps.google.com/?q=Hotels+Statue+of+Unity+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Hotels - Statue of Unity ⭐
+        </a>
+
+        <a href="https://maps.google.com/?q=Hotels+Bhuj+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Hotels - Bhuj ⭐
+        </a>
+
+        <a href="https://maps.google.com/?q=Hotels+Dwarka+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Hotels - Dwarka 🛏️
+        </a>
+
+        <a href="https://maps.google.com/?q=Hotels+Somnath+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Hotels - Somnath 🛏️
+        </a>
+
+        <a href="https://maps.google.com/?q=Budget+Hotels+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Budget Hotels 🛏️
+        </a>
+
+    </div>
+
+
+    <!-- ================= SHOPPING ================= -->
+
+    <div class="section-title">
+        🛍️ Famous Shopping Places
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Law+Garden+Market+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Law Garden Market 🛍️
+        </a>
+
+        <a href="https://maps.google.com/?q=Manek+Chowk+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Manek Chowk 🛍️
+        </a>
+
+        <a href="https://maps.google.com/?q=Bhuj+Handicraft+Market+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Bhuj Handicrafts 🎨
+        </a>
+
+        <a href="https://maps.google.com/?q=Kutch+Handicrafts+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Kutch Handicrafts 🎨
+        </a>
+
+        <a href="https://maps.google.com/?q=Gujarati+Textiles+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Gujarati Textiles 👗
+        </a>
+
+    </div>
+
+
+    <!-- ================= TRANSPORT ================= -->
+
+    <div class="section-title">
+        🚕 Taxi & Transport
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Taxi+Service+Ahmedabad+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Local Taxi 🚕
+        </a>
+
+        <a href="https://maps.google.com/?q=Car+Rental+Ahmedabad+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Car Rental 🚗
+        </a>
+
+        <a href="https://maps.google.com/?q=Ahmedabad+Airport+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Airport Transfer ✈️
+        </a>
+
+        <a href="https://maps.google.com/?q=Ahmedabad+Railway+Station"
+           target="_blank"
+           class="map-btn">
+            Railway Travel 🚆
+        </a>
+
+        <a href="https://maps.google.com/?q=GSRTC+Bus+Station+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            GSRTC Bus Transport 🚌
+        </a>
+
+    </div>
+
+
+    <!-- ================= EXPERIENCES ================= -->
+
+    <div class="section-title">
+        ✨ Famous Gujarat Experiences
+    </div>
+
+    <div class="link-grid">
+
+        <a href="https://maps.google.com/?q=Rann+of+Kutch+Dhordo+Gujarat"
+           target="_blank"
+           class="map-btn">
+            White Rann Experience 🤍
+        </a>
+
+        <a href="https://maps.google.com/?q=Statue+of+Unity+Ekta+Nagar"
+           target="_blank"
+           class="map-btn">
+            Statue of Unity Experience 🗿
+        </a>
+
+        <a href="https://maps.google.com/?q=Gir+National+Park+Gujarat"
+           target="_blank"
+           class="map-btn">
+            Wildlife Experience 🦁
+        </a>
+
+        <a href="https://maps.google.com/?q=Navratri+Garba+Ahmedabad"
+           target="_blank"
+           class="map-btn">
+            Navratri & Garba 💃
+        </a>
+
+        <a href="https://maps.google.com/?q=Kite+Festival+Ahmedabad+Gujarat"
+           target="_blank"
+           class="map-btn">
+            International Kite Festival 🪁
+        </a>
+
+        <a href="https://maps.google.com/?q=Ahmedabad+Heritage+Walk"
+           target="_blank"
+           class="map-btn">
+            Heritage Walk 🏛️
+        </a>
+
+    </div>
+
+
+    <!-- ================= PLAN MY TRIP ================= -->
+
+    <div class="plan-container">
+
+        <button
+            type="button"
+            class="plan-btn"
+            onclick="openTripPlanner()">
+
+            🧳 Plan My Trip
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= WHATSAPP ================= -->
+
+    <div class="wp-container">
+
+        <a
+            href="https://wa.me/918401350709?text=Hi!%20I%20want%20to%20book%20a%20Gujarat%20trip"
+            target="_blank"
+            class="wp-btn">
+
+            Book My Trip Now
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TRIP PLANNER POPUP ================= -->
+
+<div id="tripPlannerModal" class="trip-modal">
+
+    <div class="trip-box">
+
+        <button
+            type="button"
+            class="close-btn"
+            onclick="closeTripPlanner()">
+
+            ×
+
+        </button>
+
+        <h2>🧳 Plan Your Gujarat Trip</h2>
+
+        <label>How many days?</label>
+
+        <select id="tripDays">
+
+            <option value="2">2 Days</option>
+            <option value="3">3 Days</option>
+            <option value="4">4 Days</option>
+            <option value="5">5 Days</option>
+            <option value="6">6 Days</option>
+            <option value="7">7 Days</option>
+
+        </select>
+
+
+        <label>Budget</label>
+
+        <select id="tripBudget">
+
+            <option value="budget">Budget</option>
+            <option value="mid">Mid-Range</option>
+            <option value="luxury">Luxury</option>
+
+        </select>
+
+
+        <label>Number of Travellers</label>
+
+        <select id="travellers">
+
+            <option value="1">1 Traveller</option>
+            <option value="2">2 Travellers</option>
+            <option value="3">3 Travellers</option>
+            <option value="4">4 Travellers</option>
+            <option value="5">5 Travellers</option>
+            <option value="6">6 Travellers</option>
+
+        </select>
+
+
+        <button
+            type="button"
+            class="generate-btn"
+            onclick="generateTrip()">
+
+            ✨ Generate My Trip
+
+        </button>
+
+
+        <div id="tripResult" class="trip-result"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const gujaratPlaces = [
+
+    {
+        name: "Ahmedabad Heritage",
+        description: "Explore Ahmedabad's historic architecture, heritage streets and local culture."
+    },
+
+    {
+        name: "Rani Ki Vav, Patan",
+        description: "Discover the famous historic stepwell and Patan heritage."
+    },
+
+    {
+        name: "Modhera Sun Temple",
+        description: "Visit the beautiful Sun Temple and experience Gujarat's architectural heritage."
+    },
+
+    {
+        name: "Great Rann of Kutch",
+        description: "Experience the iconic white salt desert and the unique landscape of Kutch."
+    },
+
+    {
+        name: "Statue of Unity",
+        description: "Visit the iconic Statue of Unity and explore Ekta Nagar."
+    },
+
+    {
+        name: "Gir National Park",
+        description: "Explore Gujarat's wildlife and the habitat of Asiatic lions."
+    },
+
+    {
+        name: "Somnath",
+        description: "Visit the famous Somnath temple and enjoy the coastal surroundings."
+    }
+
+];
+
+
+function openTripPlanner() {
+
+    document.getElementById("tripPlannerModal").style.display = "flex";
+
+}
+
+
+function closeTripPlanner() {
+
+    document.getElementById("tripPlannerModal").style.display = "none";
+
+}
+
+
+function generateTrip() {
+
+    const days =
+        parseInt(document.getElementById("tripDays").value);
+
+    const budget =
+        document.getElementById("tripBudget").value;
+
+    const travellers =
+        document.getElementById("travellers").value;
+
+
+    let budgetText;
+
+    if (budget === "budget") {
+
+        budgetText = "Budget-friendly";
+
+    }
+    else if (budget === "mid") {
+
+        budgetText = "Mid-Range";
+
+    }
+    else {
+
+        budgetText = "Luxury";
+
+    }
+
+
+    let result = `
+
+        <div class="trip-summary">
+
+            <h3>
+                🎉 Your Gujarat Trip
+            </h3>
+
+            <p>
+                ${days} Days •
+                ${travellers} Traveller(s) •
+                ${budgetText}
+            </p>
+
+        </div>
+
+    `;
+
+
+    for (let i = 0; i < days; i++) {
+
+        const place =
+            gujaratPlaces[i % gujaratPlaces.length];
+
+
+        result += `
+
+            <div class="day-card">
+
+                <h3>
+                    Day ${i + 1} — ${place.name}
+                </h3>
+
+                <p>
+                    ${place.description}
+                </p>
+
+                <small>
+                    📍 Explore • 🍴 Food • 📸 Experience
+                </small>
+
+            </div>
+
+        `;
+
+    }
+
+
+    document.getElementById("tripResult").innerHTML = result;
+
+}
+
+</script>
+
+
+</body>
+</html>
